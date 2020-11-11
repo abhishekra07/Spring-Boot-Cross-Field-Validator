@@ -1,9 +1,9 @@
-package com.codelabs.custome.validator;
+package com.codelabs.custom.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.codelabs.custome.annotation.CrossField;
+import com.codelabs.custom.annotation.CrossField;
 
 public class CrossFieldValidator implements ConstraintValidator<CrossField, Object>{
 

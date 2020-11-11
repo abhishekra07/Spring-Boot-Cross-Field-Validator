@@ -1,9 +1,9 @@
-package com.codelabs.custome.validator;
+package com.codelabs.custom.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.codelabs.custome.annotation.CheckValue;;
+import com.codelabs.custom.annotation.CheckValue;;
 public class CheckValueValidator implements ConstraintValidator<CheckValue, String>{
 
 	@Override

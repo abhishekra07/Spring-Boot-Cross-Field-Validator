@@ -1,4 +1,4 @@
-package com.codelabs.custome.annotation;
+package com.codelabs.custom.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,8 +11,8 @@ import javax.validation.Payload;
 @Documented
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CrossField {
-	String message() default "Invalid field";
+public @interface CheckValue {
+	String message() default "Invalid value";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
