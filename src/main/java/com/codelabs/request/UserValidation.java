@@ -1,16 +1,18 @@
 package com.codelabs.request;
 
 import com.codelabs.custom.annotation.CheckValue;
+import com.codelabs.utility.Constants;
+import com.codelabs.utility.ErrorConstants;
 
 public class UserValidation {
 	
-	@CheckValue
+	@CheckValue(key = ErrorConstants.INVALID_USER_ID, type = Constants.USER_ID)
 	private String userId;
 
-	@CheckValue
+	@CheckValue(key = ErrorConstants.INVALID_EMAIL_ID, type = Constants.EMAIL_ID)
 	private String emailAddress;
 	
-	@CheckValue
+	@CheckValue(key = ErrorConstants.INVALID_VERIFY_EMAIL_ID, type = Constants.VERIFY_EMAIL_ID)
 	private String verifyEmailAddress;
 	
 	private String password;

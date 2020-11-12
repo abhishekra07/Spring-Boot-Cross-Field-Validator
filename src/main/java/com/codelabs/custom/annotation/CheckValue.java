@@ -19,6 +19,6 @@ public @interface CheckValue {
 	String message() default "Value is not valid";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
-    String errorKey();
-    String fieldType();
+    String key();
+    String type();
 }
