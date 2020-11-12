@@ -23,24 +23,22 @@ public class CrossFieldValidator implements ConstraintValidator<CrossField, Obje
 		
 		//here i have one class but this annotation can be used to validate class
 		if(code.equals(Constants.CROSS_FIELD_INPUT) && value != null) {
-			isValid = validateEmailAddress((UserValidation) value,context);
-			isValid = validatePassword((UserValidation) value,context);
+			isValid = validateRequest((UserValidation) value,context);
 		}
 		return isValid;
 	}
 	
-	private boolean validatePassword(UserValidation value, ConstraintValidatorContext context) {
-		if(value.getEmailAddress().equals(value.getVerifyEmailAddress()))
-			return true;
-		setConstraintViolationError(ErrorConstants.EMAIL_NOT_MATCH,context);
-		return false;
-	}
-
-	private boolean validateEmailAddress(UserValidation value, ConstraintValidatorContext context) {
-		if(value.getPassword().equals(value.getVerifyPassword()))
-			return true;
-		setConstraintViolationError(ErrorConstants.PASSWORD_NOT_MATCH,context);
-		return false;
+	private boolean validateRequest(UserValidation value, ConstraintValidatorContext context) {
+		boolean isValid = true;
+		if(!value.getEmailAddress().equals(value.getVerifyEmailAddress())) {
+			isValid = false;
+			setConstraintViolationError(ErrorConstants.EMAIL_NOT_MATCH,context);
+		}
+		if(!value.getPassword().equals(value.getVerifyPassword())) {
+			isValid = false;
+			setConstraintViolationError(ErrorConstants.PASSWORD_NOT_MATCH,context);
+		}
+		return isValid;
 	}
 
 	private void setConstraintViolationError(String errorMessage, ConstraintValidatorContext context) {

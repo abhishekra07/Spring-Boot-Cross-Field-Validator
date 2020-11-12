@@ -1,6 +1,7 @@
 package com.codelabs.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,9 @@ public class Controller {
 	@Autowired
 	RequestValidator validator;
 	
-	public String validateInputs(@RequestBody UserValidation userInput) {
-		
+	@PostMapping
+	public boolean validateInputs(@RequestBody UserValidation userInput) {
+		validator.validate(userInput);
+		return true;
 	}
 }
