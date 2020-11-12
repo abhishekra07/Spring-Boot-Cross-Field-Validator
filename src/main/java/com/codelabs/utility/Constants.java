@@ -7,4 +7,5 @@ public class Constants {
 	public static final String USER_ID = "USER_ID";
 	public static final String EMAIL_ID = "IEMAIL_ID";
 	public static final String VERIFY_EMAIL_ID = "VERIFY_EMAIL_ID";
+	public static final String EMAIL_REGEX = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 }
