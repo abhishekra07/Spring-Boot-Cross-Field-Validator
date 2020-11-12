@@ -1,0 +1,406 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Custom Validators",
+		"_postman_id": "03a96281-3421-5703-ccf7-aa841fa0f367",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Invalid UserId",
+			"request": {
+				"url": "http://localhost:8089/api/validator",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"12345\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhishek@gmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "5da279ee-247e-4fc8-8a70-cb0f925e2dc0",
+					"name": "Invalid UserId",
+					"originalRequest": {
+						"url": "http://localhost:8089/api/validator",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"12345\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhishek@gmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "close",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 12 Nov 2020 05:30:17 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "strick-transport-security",
+							"key": "strick-transport-security",
+							"value": "max-age=31536000; includeSubDomains",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 294,
+					"body": "{\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"Invalid user Id\"}]}"
+				}
+			]
+		},
+		{
+			"name": "Invalid Email Address",
+			"request": {
+				"url": "http://localhost:8089/api/validator",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishgmail.com\",\n\t\"verifyEmailAddress\": \"abhishek@gmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "af9b123c-26e7-4a71-a7ba-c0c75168fd5d",
+					"name": "Invalid Email Address",
+					"originalRequest": {
+						"url": "http://localhost:8089/api/validator",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishgmail.com\",\n\t\"verifyEmailAddress\": \"abhishek@gmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "close",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 12 Nov 2020 05:26:57 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "strick-transport-security",
+							"key": "strick-transport-security",
+							"value": "max-age=31536000; includeSubDomains",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 1053,
+					"body": "{\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"Invalid email Id\"},{\"message\":\"Email and Verify Email don't match!\"}]}"
+				}
+			]
+		},
+		{
+			"name": "Invalid Verify Email Address",
+			"request": {
+				"url": "http://localhost:8089/api/validator",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhishgmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "5e27acdb-f7c0-485c-9be4-8cfcc786faab",
+					"name": "Invalid Verify Email Address",
+					"originalRequest": {
+						"url": "http://localhost:8089/api/validator",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhishegmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "close",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 12 Nov 2020 05:28:02 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "strick-transport-security",
+							"key": "strick-transport-security",
+							"value": "max-age=31536000; includeSubDomains",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 129,
+					"body": "{\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"Invalid verify email Id\"},{\"message\":\"Email and Verify Email don't match!\"}]}"
+				}
+			]
+		},
+		{
+			"name": "Email dont match",
+			"request": {
+				"url": "http://localhost:8089/api/validator",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhisk@gmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "b4ceca72-0e95-4cc3-a0f8-5379970587b6",
+					"name": "Email dont match",
+					"originalRequest": {
+						"url": "http://localhost:8089/api/validator",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhish@gmail.com\",\n\t\"password\": \"123\",\n\t\"verifyPassword\": \"123\"\n}"
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "close",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 12 Nov 2020 05:29:10 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "strick-transport-security",
+							"key": "strick-transport-security",
+							"value": "max-age=31536000; includeSubDomains",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 122,
+					"body": "{\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"Email and Verify Email don't match!\"}]}"
+				}
+			]
+		},
+		{
+			"name": "Password dont match",
+			"request": {
+				"url": "http://localhost:8089/api/validator",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhishek@gmail.com\",\n\t\"password\": \"1234\",\n\t\"verifyPassword\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "eb2db2b4-0ff5-4698-a125-65607e5acf03",
+					"name": "Password dont match",
+					"originalRequest": {
+						"url": "http://localhost:8089/api/validator",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"abhi123\",\n\t\"emailAddress\": \"abhishek@gmail.com\",\n\t\"verifyEmailAddress\": \"abhishek@gmail.com\",\n\t\"password\": \"1234\",\n\t\"verifyPassword\": \"123\"\n}"
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "close",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 12 Nov 2020 05:29:49 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "strick-transport-security",
+							"key": "strick-transport-security",
+							"value": "max-age=31536000; includeSubDomains",
+							"description": "Custom header"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"responseTime": 50,
+					"body": "{\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"Password and Verify Password don't match!\"}]}"
+				}
+			]
+		}
+	]
+}
