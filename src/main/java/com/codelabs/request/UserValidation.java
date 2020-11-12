@@ -1,5 +1,7 @@
 package com.codelabs.request;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.codelabs.custom.annotation.CheckValue;
 import com.codelabs.custom.annotation.CrossField;
 import com.codelabs.utility.Constants;
@@ -8,17 +10,22 @@ import com.codelabs.utility.ErrorConstants;
 @CrossField.List(value = {@CrossField(code = Constants.CROSS_FIELD_INPUT)})
 public class UserValidation {
 	
+	@NotEmpty(message = ErrorConstants.INVALID_USER_ID)
 	@CheckValue(key = ErrorConstants.INVALID_USER_ID, type = Constants.USER_ID)
 	private String userId;
 
+	@NotEmpty(message = ErrorConstants.INVALID_EMAIL_ID)
 	@CheckValue(key = ErrorConstants.INVALID_EMAIL_ID, type = Constants.EMAIL_ID)
 	private String emailAddress;
 	
+	@NotEmpty(message = ErrorConstants.INVALID_VERIFY_EMAIL_ID)
 	@CheckValue(key = ErrorConstants.INVALID_VERIFY_EMAIL_ID, type = Constants.VERIFY_EMAIL_ID)
 	private String verifyEmailAddress;
 	
+	@NotEmpty(message = ErrorConstants.INVALID_PASSWORD)
 	private String password;
 	
+	@NotEmpty(message = ErrorConstants.INVALID_VERIFY_PASSWORD)
 	private String verifyPassword;
 
 	public String getUserId() {
