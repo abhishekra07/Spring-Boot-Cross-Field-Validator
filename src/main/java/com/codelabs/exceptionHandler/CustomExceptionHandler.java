@@ -25,6 +25,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<Object> handleValidationException(ValidationException e){
     	BaseResponse response = new BaseResponse();
+    	response.setMessage("Validation Failed");
     	response.setErrors(getErrorList(e.getErrorCodes()));
     	return new ResponseEntity<>(response, httpHeaders, HttpStatus.BAD_REQUEST);
     }
