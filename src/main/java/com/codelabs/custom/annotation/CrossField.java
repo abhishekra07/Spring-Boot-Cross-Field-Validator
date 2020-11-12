@@ -20,16 +20,12 @@ public @interface CrossField {
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
     
+    
+    //below two fields can be used to check two dependent values if they match or not
     String fieldToValiate() default "";
     String fieldToValiateAgainst() default "";
     
     String code();
-    
-    String errorKey();
-    
-    Class<?> objectToValidate() default Object.class;
-    
-    Class<?> objectToValidateAgainst() default Object.class;
     
     @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
     @Retention(RetentionPolicy.RUNTIME)
@@ -38,3 +34,13 @@ public @interface CrossField {
     	CrossField[] value();
     }
 }
+
+/*	This is an exmaple how to use above annotation to validate two fields
+ * @FieldsValueMatch.List({
+ * 
+ * @FieldsValueMatch( field = "password", fieldMatch = "verifyPassword", message
+ * = "Passwords do not match!" ),
+ * 
+ * @FieldsValueMatch( field = "email", fieldMatch = "verifyEmail", message =
+ * "Email addresses do not match!" ) })
+ */

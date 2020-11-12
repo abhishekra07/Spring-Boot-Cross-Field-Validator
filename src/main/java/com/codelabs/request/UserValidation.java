@@ -1,9 +1,11 @@
 package com.codelabs.request;
 
 import com.codelabs.custom.annotation.CheckValue;
+import com.codelabs.custom.annotation.CrossField;
 import com.codelabs.utility.Constants;
 import com.codelabs.utility.ErrorConstants;
 
+@CrossField.List(value = {@CrossField(code = Constants.CROSS_FIELD_INPUT)})
 public class UserValidation {
 	
 	@CheckValue(key = ErrorConstants.INVALID_USER_ID, type = Constants.USER_ID)
